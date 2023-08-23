@@ -48,7 +48,7 @@ const Hero = () => {
           className="flex flex-row justify-between items-center w-full">
           <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
             Mudanzas <br className="sm:block hidden" />{" "}
-            <span className="text-gradient">Cristal</span>{" "}
+            <span className="text-gradient">Kaplinsky</span>{" "}
           </h1>
           <motion.div
             viewport={{ once: true }}
