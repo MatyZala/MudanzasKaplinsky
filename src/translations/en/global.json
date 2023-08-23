@@ -1,0 +1,69 @@
+{
+  "home": {
+    "hello-world": "Hello World"
+  },
+  "navLinks": {
+    "home": "Home",
+    "business": "Movings",
+    "product": "About us",
+    "clients": "Testimonials"
+  },
+  "hero": {
+    "quality": "Quality",
+    "and": "and",
+    "timeliness": "Timeliness",
+    "solutions": "Moving Company",
+    "paragraph": "Our team of moving experts is dedicated to providing you with exceptional service. Like a well-coordinated team, we work together to handle your belongings with the utmost care. Your satisfaction and the safety of your belongings are our top priority."
+  },
+  "stats": {
+    "security": "SECURITY",
+    "comunication": "COMUNICATION",
+    "adaptability": "ADAPTABILITY"
+  },
+  "business": {
+    "t1": "Personalized treatment for",
+    "t2": "all kinds of ",
+    "t3": "With years of experience, we have perfected the art of customized moves. We understand that every move is unique, so we create custom solutions that perfectly suit your needs. We take care of every detail so you can enjoy the process worry-free!",
+    "t4": "Movings.",
+    "start": "Experience and technical expertise.",
+    "sendt": "Open and effective communication.",
+    "shieldt": "Customized solutions",
+    "stard": "Our team of professionals has years of experience and a wide range of skills regarding the care of your belongings.",
+    "shieldd": "We understand that each move is unique and that is why we provide customized solutions that are tailored to your specific needs.",
+    "sendd": "We focus on establishing long-term relationships with our clients and foster open and effective communication to ensure we meet their expectations and objectives."
+  },
+  "billing": {
+    "prod": "Movings",
+    "inn": "Locations",
+    "and": "and",
+    "pers": "Internationals.",
+    "paragraph": "In the world of moving, Crystal Movers stands out as a company that addresses both local and international needs with a thorough and caring approach. Our commitment is to simplify the moving process for you, taking care of every step of the way and ensuring that your belongings are protected no matter how far they must travel.We know that every move is unique and that your belongings have significant emotional and material value. That's why we offer a variety of packing options designed to accommodate different types of items. Whether it's fragile items, bulky objects or delicate items, our expert packing team will ensure that everything is properly protected for the journey.",
+    "testimonials": {
+      "test": "Testimonials",
+      "client": "of our customers",
+      "paragraph": "At our company, we understand that our clients' success is our success. That is why we are committed to providing exceptional service and personalized attention to each of our clients. to each of our clients.",
+      "title1": "Manager at Shell",
+      "content1": "I am extremely satisfied with the moving services provided by Crystal Movers. As a Shell manager, we rely on accuracy and professionalism in every aspect of our operations. Crystal Movers did not disappoint. From packing and protection of sensitive equipment to timely delivery to our new location, their meticulous approach was evident. Smooth communication and attention to detail made this international move go smoothly. I highly recommend Crystal Movers for any moving needs, both local and international."
+    }
+  },
+  "cta": {
+    "pr": "Try Our Services!",
+    "paragraph": "Planning a move? Let us take care of every detail for you. At Crystal Movers, we are ready to make your moving experience smooth and stress-free. With experienced professionals and customized packing options, your satisfaction is our priority - try our services and discover the difference!"
+  },
+  "footer": {
+    "sol": "Customized Technological Solutions."
+  },
+  "button": {
+    "start": "Get Started",
+    "st": "Get",
+    "str": "Started"
+  },
+  "form": {
+    "contact": "Contact Us",
+    "name": "First Name",
+    "surname": "Last Name",
+    "phone": "Phone",
+    "paragraph": "Write Your Request...",
+    "send": "Send Message"
+  }
+}
