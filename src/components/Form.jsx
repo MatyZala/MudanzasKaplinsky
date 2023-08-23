@@ -52,7 +52,7 @@ const Form = () => {
           />
           <input type="hidden" name="_next" value="https://mudanzas-cristal.vercel.app/" />
           <input type="hidden" name="_template" value="box" />
-          <input type="hidden" name="_autoresponse" value="Gracias por comunicarse con Mudanzas Cristal, en breve sera contactado. Muchas Gracias!" />
+          <input type="hidden" name="_autoresponse" value="Gracias por comunicarse con Mudanzas Kaplinsky, en breve sera contactado. Muchas Gracias!" />
         </form>
       </div>
 
