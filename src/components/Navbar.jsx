@@ -32,6 +32,13 @@ const Navbar = () => {
           <a href="#business">{t('navLinks.business')}</a>
         </li>
         <li
+          onClick={() => setActive('quote')}
+          key='quote'
+          className={`font-poppins font-normal cursor-pointer text-[16px] mr-5 ${active === 'quote' ? "text-white" : "text-dimWhite"
+            } `} >
+          <a href="#quote">{t('navLinks.quote')}</a>
+        </li>
+        <li
           onClick={() => setActive('product')}
           key='product'
           className={`font-poppins font-normal cursor-pointer text-[16px] mr-5 ${active === 'product' ? "text-white" : "text-dimWhite"
