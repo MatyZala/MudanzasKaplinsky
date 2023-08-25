@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-/* classNameName={`${styles.flexCenter} ${styles.marginY} ${styles.padding} sm:flex-row flex-col bg-black-gradient-2 rounded-[20px] box-shadow`} */
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
+
 
 const Form = () => {
+
+  useEffect(() => {
+    AOS.init({ duration: 1700 })
+  }, [])
 
   const [t] = useTranslation('global')
 
   return (
-    <div className="flex-1 flex flex-col border border-teal-200 rounded bg-black-gradient-2">
+    <div data-aos="flip-down" className="flex-1 flex flex-col border border-teal-200 rounded bg-black-gradient-2">
       <div className="p-5 space-y-5 shadow-xl">
         <h4 className="text-center text-3xl">{t('form.contact')}</h4>
 

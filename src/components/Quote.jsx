@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 import { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Map from './Map';
+import { useSelector } from 'react-redux';
 
 const styles = StyleSheet.create({
     page: {
@@ -70,10 +71,11 @@ const Quote = () => {
     const [employees, setEmployees] = useState('');
     const [numEmployees, setNumEmployees] = useState(1);
     const [cubicMeters, setCubicMeters] = useState(0);
+    const { distance } = useSelector((state) => state.location);
 
     const handleCalculateQuote = () => {
         toast.info(`Presupuesto: $${calculateQuote().toLocaleString('es-AR')}`, {
-            position: 'top-center',
+            position: 'bottom-center',
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -135,6 +137,7 @@ const Quote = () => {
 
     const calculateQuote = () => {
         let totalPrice = 0;
+        let costPerKm = 0;
 
         if (packaging === 'Con Embalaje') {
             totalPrice += 50;
@@ -143,13 +146,19 @@ const Quote = () => {
         if (packagingType === 'Nacional') {
             totalPrice += 100;
             totalPrice += cubicMeters * 2500;
+            costPerKm = 50;
         } else if (packagingType === 'Internacional') {
             totalPrice += 200;
             totalPrice += cubicMeters * 4000;
+            costPerKm = 100;
         }
 
         if (employees === 'Con Empleados') {
             totalPrice += numEmployees * 30;
+        }
+
+        if (distance) {
+            totalPrice += distance * costPerKm;
         }
 
         return totalPrice;
@@ -190,6 +199,12 @@ const Quote = () => {
                             <Text style={[styles.value, styles.cell]}>{numEmployees}</Text>
                         </View>
                     )}
+                    {distance && (
+                        <View style={[styles.detailRow, styles.detailRowBorder]}>
+                            <Text style={[styles.label, styles.cell]}>Distancia:</Text>
+                            <Text style={[styles.value, styles.cell]}>{distance} km</Text>
+                        </View>
+                    )}
                     <View style={[styles.detailRow, styles.detailRowBorder]}>
                         <Text style={[styles.label, styles.cell]}>Presupuesto:</Text>
                         <Text style={[styles.value, styles.cell]}>${calculateQuote().toLocaleString('es-AR')}</Text>
@@ -203,116 +218,124 @@ const Quote = () => {
     );
 
     return (
-        <div className='min-h-screen flex items-center justify-center rounded-xl bg-gray-900' id='quote' data-aos="fade-up"
-            data-aos-duration="3000">
-            <div className='w-full md:w-1/2 p-8'>
-                <div className='bg-white rounded-lg shadow-lg p-8' >
-                    <h2 className='text-2xl font-semibold mb-4'>Cotiza Tu Mudanza</h2>
-                    <form className='space-y-4'>
-                        <div className='mb-4'>
-                            <label className='block font-semibold'>Embalaje:</label>
-                            <select
-                                className='border rounded p-2 w-full'
-                                value={packaging}
-                                onChange={handlePackagingChange}
-                            >
-                                <option value=''>Seleccione una opción</option>
-                                <option value='Con Embalaje'>Con Embalaje</option>
-                                <option value='withoutPackaging'>Sin embalaje</option>
-                            </select>
+        <div>
+            <div className='min-h-screen flex items-center justify-center rounded-xl bg-gray-900' id='quote' data-aos="fade-up" data-aos-duration="3000">
+                <div style={{ width: '100%' }} className='md:w-1/2 p-8'>
+                    <div className='bg-white rounded-lg shadow-lg p-8' >
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <h2 className='text-2xl font-semibold mb-4'>Cotiza Tu Mudanza</h2>
                         </div>
-                        {packaging === 'Con Embalaje' && (
-                            <div className='mb-4 md:mb-0'>
-                                <label className='block font-semibold'>Tipo de embalaje:</label>
+                        <p className='font-semibold mb-4'>Seleccione el punto de partida y el destino</p>
+                        <Map />
+                        <form className='space-y-4 mt-2'>
+                            <div className='mb-4'>
+                                <label className='block font-semibold'>Embalaje:</label>
                                 <select
                                     className='border rounded p-2 w-full'
-                                    value={packagingType}
-                                    onChange={handlePackagingTypeChange}
+                                    value={packaging}
+                                    onChange={handlePackagingChange}
                                 >
                                     <option value=''>Seleccione una opción</option>
-                                    <option value='Nacional'>Nacional</option>
-                                    <option value='Internacional'>Internacional</option>
+                                    <option value='Con Embalaje'>Con Embalaje</option>
+                                    <option value='withoutPackaging'>Sin embalaje</option>
                                 </select>
                             </div>
-                        )}
-                        {packaging === 'Con Embalaje' && (
-                            <div className='mb-4 md:mb-0'>
-                                <label className='block font-semibold'>Metros Cúbicos:</label>
-                                <input
-                                    className='border rounded p-2 w-full'
-                                    type='number'
-                                    value={cubicMeters}
-                                    onChange={(event) => setCubicMeters(event.target.value)}
-                                />
-                            </div>
-                        )}
-                        <div className='mb-4'>
-                            <label className='block font-semibold'>Con o sin empleados:</label>
-                            <select
-                                className='border rounded p-2 w-full'
-                                value={employees}
-                                onChange={handleEmployeesChange}
-                            >
-                                <option value=''>Seleccione una opción</option>
-                                <option value='Con Empleados'>Con Empleados</option>
-                                <option value='Sin Empleados'>Sin empleados</option>
-                            </select>
-                        </div>
-                        {employees === 'Con Empleados' && (
+                            {packaging === 'Con Embalaje' && (
+                                <div className='mb-4 md:mb-0'>
+                                    <label className='block font-semibold'>Tipo de embalaje:</label>
+                                    <select
+                                        className='border rounded p-2 w-full'
+                                        value={packagingType}
+                                        onChange={handlePackagingTypeChange}
+                                    >
+                                        <option value=''>Seleccione una opción</option>
+                                        <option value='Nacional'>Nacional</option>
+                                        <option value='Internacional'>Internacional</option>
+                                    </select>
+                                </div>
+                            )}
+                            {packaging === 'Con Embalaje' && (
+                                <div className='mb-4 md:mb-0'>
+                                    <label className='block font-semibold'>Metros Cúbicos:</label>
+                                    <input
+                                        className='border rounded p-2 w-full'
+                                        type='number'
+                                        value={cubicMeters}
+                                        onChange={(event) => setCubicMeters(event.target.value)}
+                                    />
+                                </div>
+                            )}
                             <div className='mb-4'>
-                                <label className='block font-semibold'>Cantidad de empleados:</label>
+                                <label className='block font-semibold'>Con o sin empleados:</label>
                                 <select
                                     className='border rounded p-2 w-full'
-                                    value={numEmployees}
-                                    onChange={handleNumEmployeesChange}
+                                    value={employees}
+                                    onChange={handleEmployeesChange}
                                 >
-                                    {Array.from({ length: 10 }, (_, index) => index + 1).map((num) => (
-                                        <option key={num} value={num}>
-                                            {num}
-                                        </option>
-                                    ))}
+                                    <option value=''>Seleccione una opción</option>
+                                    <option value='Con Empleados'>Con Empleados</option>
+                                    <option value='Sin Empleados'>Sin empleados</option>
                                 </select>
                             </div>
-                        )}
-                        <div className='md:flex md:space-x-4 items-center'>
-                            <button
-                                className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-full md:w-auto'
-                                type='button'
-                                onClick={handleCalculateQuote}
-                            >
-                                Calcular Presupuesto
-                            </button>
-                            <PDFDownloadLink document={<QuotePDF />} fileName='presupuesto_mudanza.pdf'>
-                                {({ blob, url, loading, error }) =>
-                                    loading ? (
-                                        'Generando PDF...'
-                                    ) : (
-                                        <button
-                                            className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-full md:w-auto'
-                                            type='button'
-                                            onClick={handleDownloadPDF}
-                                        >
-                                            Descargar Presupuesto
-                                        </button>
-                                    )
-                                }
-                            </PDFDownloadLink>
-                        </div>
-                    </form>
+                            {employees === 'Con Empleados' && (
+                                <div className='mb-4'>
+                                    <label className='block font-semibold'>Cantidad de empleados:</label>
+                                    <select
+                                        className='border rounded p-2 w-full'
+                                        value={numEmployees}
+                                        onChange={handleNumEmployeesChange}
+                                    >
+                                        {Array.from({ length: 10 }, (_, index) => index + 1).map((num) => (
+                                            <option key={num} value={num}>
+                                                {num}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            )}
+                            <div className='md:flex md:space-x-4 items-center'>
+                                <button
+                                    className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-full md:w-auto'
+                                    type='button'
+                                    onClick={handleCalculateQuote}
+                                >
+                                    Calcular Presupuesto
+                                </button>
+                                <PDFDownloadLink document={<QuotePDF />} fileName='presupuesto_mudanza.pdf'>
+                                    {({ blob, url, loading, error }) =>
+                                        loading ? (
+                                            'Generando PDF...'
+                                        ) : (
+                                            <button
+                                                className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-full md:w-auto'
+                                                type='button'
+                                                onClick={handleDownloadPDF}
+                                            >
+                                                Descargar Presupuesto
+                                            </button>
+                                        )
+                                    }
+                                </PDFDownloadLink>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                />
+
+
             </div>
-            <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
 
         </div>
     );
