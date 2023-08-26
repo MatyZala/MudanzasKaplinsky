@@ -2,6 +2,7 @@ import { useCallback, useMemo, useRef, useState } from "react"
 import { Marker, Popup } from "react-leaflet"
 import { useSelector, useDispatch } from 'react-redux';
 import { setToLocation } from '../redux/actions';
+import L from 'leaflet'
 
 function DraggableMarker2() {
 
@@ -25,11 +26,17 @@ function DraggableMarker2() {
         setDraggable((d) => !d)
     }, [])
 
+    const markerIcon = new L.Icon({
+        iconUrl: 'https://res.cloudinary.com/durff4va2/image/upload/v1693009102/mark_enmhch.png',
+        iconSize: [35, 35]
+    })
+
     return (
         <Marker
             draggable={draggable}
             eventHandlers={eventHandlers}
             position={to}
+            icon={markerIcon}
             ref={markerRef}>
             <Popup minWidth={90}>
                 <span onClick={toggleDraggable}>

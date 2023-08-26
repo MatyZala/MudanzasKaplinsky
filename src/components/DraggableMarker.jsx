@@ -2,7 +2,8 @@ import { useCallback, useMemo, useRef, useState } from "react"
 import { Marker, Popup } from "react-leaflet"
 import { useSelector, useDispatch } from 'react-redux';
 import { setFromLocation } from '../redux/actions';
-
+import Mark from '../assets/mark.png'
+import L from 'leaflet'
 
 function DraggableMarker() {
     const [draggable, setDraggable] = useState(false)
@@ -25,17 +26,18 @@ function DraggableMarker() {
         setDraggable((d) => !d)
     }, [])
 
-    const cambiarEstado = () => {
-        dispatch({ type: 'CAMBIAR_ALGO', payload: newData });
-    }
 
-
+    const markerIcon = new L.Icon({
+        iconUrl: 'https://res.cloudinary.com/durff4va2/image/upload/v1693009360/map_vwslni.png',
+        iconSize: [35, 35]
+    })
 
     return (
         <Marker
             draggable={draggable}
             eventHandlers={eventHandlers}
             position={from}
+            icon={markerIcon}
             ref={markerRef}>
             <Popup minWidth={90}>
                 <span onClick={toggleDraggable}>
