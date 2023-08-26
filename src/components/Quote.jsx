@@ -295,7 +295,7 @@ const Quote = () => {
                             )}
                             <div className='md:flex md:space-x-4 items-center'>
                                 <button
-                                    className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-full md:w-auto'
+                                    className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 hidden md:block rounded w-full md:w-auto'
                                     type='button'
                                     onClick={handleCalculateQuote}
                                 >
