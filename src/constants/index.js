@@ -114,10 +114,6 @@ export const clients = [
     logo: coinbase,
   },
   {
-    id: "client-4",
-    logo: dropbox,
-  },
-  {
     id: "client-5",
     logo: transferencia,
   },
