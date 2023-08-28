@@ -210,7 +210,7 @@ const Quote = () => {
                         <Text style={[styles.value, styles.cell]}>${calculateQuote().toLocaleString('es-AR')}</Text>
                     </View>
                     <Text style={styles.estimateNote}>
-                        * El presupuesto proporcionado es un estimado para brindar una noción general del costo. El precio real puede variar según las condiciones específicas de la mudanza.
+                        * El presupuesto proporcionado es un estimado para brindar una noción general del costo. El precio real puede variar según las condiciones específicas de la mudanza. Para más información, contactar al 3518567123 o por mail Simonkapli4@gmail.com.
                     </Text>
                 </View>
             </Page>
