@@ -139,28 +139,22 @@ const Quote = () => {
         let totalPrice = 0;
         let costPerKm = 0;
 
-        if (packaging === 'Con Embalaje') {
-            totalPrice += 50;
-        }
+        // if (packaging === 'Con Embalaje') {
+        //     totalPrice += 50;
+        // }
 
         if (packagingType === 'Nacional') {
-            totalPrice += 100;
-            totalPrice += cubicMeters * 2500;
-            costPerKm = 50;
+            totalPrice += cubicMeters * 500;
+            costPerKm = 660;
         } else if (packagingType === 'Internacional') {
-            totalPrice += 200;
-            totalPrice += cubicMeters * 4000;
-            costPerKm = 100;
-        }
-
-        if (employees === 'Con Empleados') {
-            totalPrice += numEmployees * 30;
+            totalPrice += cubicMeters * 2000;
+            costPerKm = 660;
         }
 
         if (distance) {
             totalPrice += distance * costPerKm;
         }
-
+        console.log(totalPrice);
         return totalPrice;
     };
 
@@ -189,16 +183,16 @@ const Quote = () => {
                             <Text style={[styles.value, styles.cell]}>{cubicMeters}</Text>
                         </View>
                     ) : null}
-                    <View style={[styles.detailRow, styles.detailRowBorder]}>
+                    {/* <View style={[styles.detailRow, styles.detailRowBorder]}>
                         <Text style={[styles.label, styles.cell]}>Empleados:</Text>
                         <Text style={[styles.value, styles.cell]}>{employees}</Text>
-                    </View>
-                    {employees === 'Con Empleados' && (
+                    </View> */}
+                    {/* {employees === 'Con Empleados' && (
                         <View style={[styles.detailRow, styles.detailRowBorder]}>
                             <Text style={[styles.label, styles.cell]}>Cantidad de empleados:</Text>
                             <Text style={[styles.value, styles.cell]}>{numEmployees}</Text>
                         </View>
-                    )}
+                    )} */}
                     {distance && (
                         <View style={[styles.detailRow, styles.detailRowBorder]}>
                             <Text style={[styles.label, styles.cell]}>Distancia:</Text>
@@ -265,7 +259,7 @@ const Quote = () => {
                                     />
                                 </div>
                             )}
-                            <div className='mb-4'>
+                            {/* <div className='mb-4'>
                                 <label className='block font-semibold'>Con o sin empleados:</label>
                                 <select
                                     className='border rounded p-2 w-full'
@@ -292,7 +286,7 @@ const Quote = () => {
                                         ))}
                                     </select>
                                 </div>
-                            )}
+                            )} */}
                             <div className='md:flex md:space-x-4 items-center'>
                                 <button
                                     className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 hidden md:block rounded w-full md:w-auto'
