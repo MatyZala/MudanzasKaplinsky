@@ -154,7 +154,6 @@ const Quote = () => {
         if (distance) {
             totalPrice += distance * costPerKm;
         }
-        console.log(totalPrice);
         return totalPrice;
     };
 
@@ -287,14 +286,14 @@ const Quote = () => {
                                     </select>
                                 </div>
                             )} */}
-                            <div className='md:flex md:space-x-4 items-center'>
-                                <button
+                            <div className='md:flex md:space-x-4 justify-end'>
+                                {/* <button
                                     className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 hidden md:block rounded w-full md:w-auto'
                                     type='button'
                                     onClick={handleCalculateQuote}
                                 >
                                     Calcular Presupuesto
-                                </button>
+                                </button> */}
                                 <PDFDownloadLink document={<QuotePDF />} fileName='presupuesto_mudanza.pdf'>
                                     {({ blob, url, loading, error }) =>
                                         loading ? (
