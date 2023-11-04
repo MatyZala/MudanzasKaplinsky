@@ -18,12 +18,8 @@
 
 .text-gradient {
   background: radial-gradient(64.18% 64.18% at 71.16% 35.69%,
-      #def9fa 0.89%,
-      #bef3f5 17.23%,
-      #9dedf0 42.04%,
-      #7de7eb 55.12%,
-      #5ce1e6 71.54%,
-      #33bbcf 100%);
+      #fef69c 0.89%, #fedf7b 17.23%, #fed35c 42.04%, #feca3d 55.12%, #fccf1d 71.54%, #f9eb0d 100%);
+  --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -31,13 +27,7 @@
 }
 
 .bg-blue-gradient {
-  background: linear-gradient(157.81deg,
-      #def9fa -43.27%,
-      #bef3f5 -21.24%,
-      #9dedf0 12.19%,
-      #7de7eb 29.82%,
-      #5ce1e6 51.94%,
-      #33bbcf 90.29%);
+  background: linear-gradient(157.81deg, #f8f5d7 -43.27%, #fedf7b -21.24%, #fed35c 12.19%, #feca3d 29.82%, #fccf1d 51.94%, #f9eb0d 90.29%);
 }
 
 .bg-black-gradient {

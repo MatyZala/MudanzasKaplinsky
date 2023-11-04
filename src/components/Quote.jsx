@@ -161,7 +161,7 @@ const Quote = () => {
         <Document>
             <Page size='A4' style={styles.page}>
                 <View style={styles.header}>
-                    <Text style={styles.title}>Presupuesto "Mudanzas Kaplinsky"</Text>
+                    <Text style={styles.title}>Presupuesto "Mudanzas La Moderna"</Text>
                     <Text style={styles.date}>{new Date().toLocaleDateString()}</Text>
                 </View>
                 <View style={styles.section}>
@@ -213,8 +213,8 @@ const Quote = () => {
     return (
         <div>
             <div className='min-h-screen flex items-center justify-center rounded-xl bg-gray-900' id='quote' data-aos="fade-up" data-aos-duration="3000">
-                <div style={{ width: '100%' }} className='md:w-1/2 p-8'>
-                    <div className='bg-white rounded-lg shadow-lg p-8' >
+                <div style={{ width: '100%', color: 'white' }} className='md:w-1/2 p-8'>
+                    <div className='bg-transparent  rounded-lg shadow-lg p-8' >
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <h2 className='text-2xl font-semibold mb-4'>Cotiza Tu Mudanza</h2>
                         </div>
@@ -300,7 +300,7 @@ const Quote = () => {
                                             'Generando PDF...'
                                         ) : (
                                             <button
-                                                className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-full md:w-auto'
+                                                className='py-4 px-6 font-poppins font-medium text-[18px] text-primary bg-blue-gradient rounded-[10px] outline-none'
                                                 type='button'
                                                 onClick={handleDownloadPDF}
                                             >

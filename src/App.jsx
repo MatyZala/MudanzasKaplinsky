@@ -1,6 +1,7 @@
 import styles from "./style";
 import { Billing, Business, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero, Quote } from "./components";
 import Form from "./components/Form";
+import CarouselContainer from "./components/Carousel";
 
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
@@ -21,6 +22,7 @@ const App = () => (
         <Stats />
         <Business />
         <Billing />
+        <CarouselContainer />
         <Testimonials />
         <Quote />
         <CTA />
