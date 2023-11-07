@@ -13,13 +13,13 @@ const GetStarted = () => {
           <p className="font-poppins font-medium text-[18px] leading-[23.4px]">
             <span className="text-gradient">{t('button.st')}</span>
           </p>
-          <a href="https://api.whatsapp.com/send?phone=+5493517656103&text=Hola!%20Me%20comunico%20desde%20la%20web.%20Quisiera%20realizar%20un%20presupuesto%20para%20una%20mudanza!" target='_blank'>
+          <a href="https://api.whatsapp.com/send?phone=+5493518567123&text=Hola!%20Me%20comunico%20desde%20la%20web.%20Quisiera%20realizar%20un%20presupuesto%20para%20una%20mudanza!" target='_blank'>
             <img src={arrowUp} alt="arrow-up" className="w-[23px] h-[23px] object-contain" />
           </a>
         </div>
 
         <p className="font-poppins font-medium text-[18px] leading-[23.4px]">
-          <span className="text-gradient"><a href="https://api.whatsapp.com/send?phone=+5493517656103&text=Hola!%20Me%20comunico%20desde%20la%20web.%20Quisiera%20realizar%20un%20presupuesto%20para%20una%20mudanza!" target='_blank'>{t('button.str')}</a></span>
+          <span className="text-gradient"><a href="https://api.whatsapp.com/send?phone=+5493518567123&text=Hola!%20Me%20comunico%20desde%20la%20web.%20Quisiera%20realizar%20un%20presupuesto%20para%20una%20mudanza!" target='_blank'>{t('button.str')}</a></span>
         </p>
       </div>
     </div>
