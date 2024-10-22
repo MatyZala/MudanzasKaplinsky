@@ -6,9 +6,10 @@ const Button = ({ styles }) => {
   const [t] = useTranslation('global')
 
   return (
-    <button type="button" className={`py-4 px-6 font-poppins font-medium text-[18px] text-primary bg-blue-gradient rounded-[10px] outline-none ${styles}`}>
+    <p>
+      <span>{t('button.prev')}</span>
       <a href="https://api.whatsapp.com/send?phone=+5493518567123&text=Hola!%20Me%20comunico%20desde%20la%20web.%20Quisiera%20realizar%20un%20presupuesto%20para%20una%20mudanza!" target='_blank'>{t('button.start')}</a>
-    </button>
+    </p>
   )
 };
 

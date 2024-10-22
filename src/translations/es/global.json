@@ -55,9 +55,10 @@
     "sol": "Soluciones Tecnológicas Realizadas A Medida."
   },
   "button": {
-    "start": "Empezar",
+    "prev": "Puedes enviarnos un mensaje para comunicarte con nosotros",
+    "start": "Enviar Mensaje",
     "st": " ",
-    "str": "Empezar"
+    "str": "Enviar Mensaje"
   },
   "form": {
     "contact": "Contactenos",
