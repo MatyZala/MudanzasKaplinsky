@@ -5,6 +5,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { useEffect } from "react";
 import { motion } from 'framer-motion'
+import GetStarted from "./GetStarted";
 
 
 const CTA = () => {
@@ -31,7 +32,7 @@ const CTA = () => {
         whileHover={{ scale: 1.3 }}
         whileTap={{ scale: 0.9 }}
         className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}>
-        <Button />
+        <GetStarted/>
       </motion.div>      
     </section>
   )
