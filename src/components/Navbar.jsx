@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="MiZt-Software" className="w-[124px] h-[32px]" />
+      <img src={logo} alt="MiZt-Software" className="w-32 h-32" />
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         <li
@@ -53,12 +53,12 @@ const Navbar = () => {
           <a href="#clients">{t('navLinks.clients')}</a>
         </li>
       </ul>
-      <div className='hidden sm:flex md:flex lg:flex xl:flex '>
+      <div className='grid grid-flow-col grid-cols-2 mx-1 gap-1'>
         <button onClick={() => i18n.changeLanguage('es')}>
-          <img src={es} alt="es" className="w-[40px] h-[30px] ml-6" />
+          <img src={es} alt="es" className="w-8 h-8"/>
         </button>
         <button onClick={() => i18n.changeLanguage('en')}>
-          <img src={en} alt="en" className="w-[40px] h-[30px] ml-1 mr-9" ></img>
+          <img src={en} alt="en" className="w-8 h-8"/>
         </button>
       </div>
 
@@ -107,12 +107,12 @@ const Navbar = () => {
             >
               <a href='#clients'>{t('navLinks.clients')}</a>
             </li>
-            <div>
+            <div className="grid grid-flow-col grid-cols-2 mx-1 gap-1">
               <button onClick={() => i18n.changeLanguage('es')}>
-                <img src={es} alt="es" className="w-[40px] h-[30px] mt-4" />
+                <img src={es} alt="es" className="w-8 h-8" />
               </button>
               <button onClick={() => i18n.changeLanguage('en')}>
-                <img src={en} alt="en" className="w-[40px] h-[30px] ml-3 " ></img>
+                <img src={en} alt="en" className="w-8 h-8 " ></img>
               </button>
             </div>
           </ul>

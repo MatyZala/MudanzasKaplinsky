@@ -1,5 +1,5 @@
 import styles from "../style";
-import { arrowUp } from "../assets";
+import {  } from "../assets";
 import { useTranslation } from "react-i18next";
 
 const GetStarted = () => {
@@ -7,22 +7,13 @@ const GetStarted = () => {
   const [t] = useTranslation('global')
 
   return (
-    <div className={`${styles.flexCenter} w-[140px] h-[140px] rounded-full bg-blue-gradient p-[2px] cursor-pointer`}>
-      <div className={`${styles.flexCenter} flex-col bg-primary w-[100%] h-[100%] rounded-full`}>
-        <div className={`${styles.flexStart} flex-row`}>
-          <p className="font-poppins font-medium text-[18px] leading-[23.4px]">
-            <span className="text-gradient">{t('button.st')}</span>
-          </p>
-          <a href="https://api.whatsapp.com/send?phone=+5493518567123&text=Hola!%20Me%20comunico%20desde%20la%20web.%20Quisiera%20realizar%20un%20presupuesto%20para%20una%20mudanza!" target='_blank'>
-            <img src={arrowUp} alt="arrow-up" className="w-[23px] h-[23px] object-contain" />
-          </a>
-        </div>
-
-        <p className="font-poppins font-medium text-[18px] leading-[23.4px]">
-          <span className="text-gradient"><a href="https://api.whatsapp.com/send?phone=+5493518567123&text=Hola!%20Me%20comunico%20desde%20la%20web.%20Quisiera%20realizar%20un%20presupuesto%20para%20una%20mudanza!" target='_blank'>{t('button.str')}</a></span>
-        </p>
-      </div>
-    </div>
+      <a 
+        className="font-poppins flex text-lg bg-green-600 text-slate-200 hover:bg-slate-200 hover:text-green-600 px-4 py-2 rounded-md gap-2 w-48 h-12 hover:animate-pulse" 
+        href="https://api.whatsapp.com/send?phone=+5493518567123&text=Hola!%20Me%20comunico%20desde%20la%20web.%20Quisiera%20realizar%20un%20presupuesto%20para%20una%20mudanza!" 
+        target='_blank'>
+        <span className="justify-center">{t('button.start')}</span>
+        <span className="justify-center"><i class="fa fa-whatsapp"></i></span>
+      </a>
   )
 };
 

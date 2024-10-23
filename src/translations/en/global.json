@@ -55,9 +55,9 @@
     "sol": "Customized Technological Solutions."
   },
   "button": {
-    "start": "Get Started",
-    "st": "Get",
-    "str": "Started"
+    "start": "Send Message",
+    "st": "Send",
+    "str": "Send Message"
   },
   "form": {
     "contact": "Contact Us",
